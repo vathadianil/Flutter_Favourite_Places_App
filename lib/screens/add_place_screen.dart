@@ -1,4 +1,5 @@
 import 'package:favourite_places_app/providers/user_places.dart';
+import 'package:favourite_places_app/widgets/image_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -22,7 +23,7 @@ class _AddPlaceScreen extends ConsumerState<AddPlaceScreen> {
 
   void _savePlace() {
     final enteredText = _titleController.text;
-    if (enteredText.isEmpty || enteredText == null) {
+    if (enteredText.isEmpty) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -54,6 +55,10 @@ class _AddPlaceScreen extends ConsumerState<AddPlaceScreen> {
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.onPrimaryContainer),
               ),
+              const SizedBox(
+                height: 16,
+              ),
+              const ImageInput(),
               const SizedBox(
                 height: 16,
               ),
